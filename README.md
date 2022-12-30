@@ -1,4 +1,5 @@
-# Scaffolder
+# Scaffolder [![Go Report Card](https://goreportcard.com/badge/github.com/Guilospanck/scaffolder)](https://goreportcard.com/report/github.com/Guilospanck/scaffolder) [![Go Reference](https://pkg.go.dev/badge/github.com/Guilospanck/scaffolder.svg)](https://pkg.go.dev/github.com/Guilospanck/scaffolder)
+
 This is a simple Scaffolder to generate templates to speedup of development. Currently it supports React and Golang web templates.
 
 ## How to use
