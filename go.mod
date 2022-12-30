@@ -1,4 +1,4 @@
-module project-template-scaffolder
+module github.com/Guilospanck/project-template-scaffolder
 
 go 1.19
 

@@ -4,7 +4,7 @@ This is a simple Scaffolder to generate templates to speedup of development. Cur
 ## How to use
 Install the package
 ```bash
-go get -u github.com/Guilospanck/project-template-scaffolder
+go install github.com/Guilospanck/project-template-scaffolder@latest
 ```
 Then run:
 ```bash
