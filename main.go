@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"os/exec"
@@ -19,9 +20,10 @@ func main() {
 			Usage:   " Generate scaffold project layout for Go web",
 			Action: func(c *cli.Context) error {
 				cmd := exec.Command("make", "go-web")
-				err := cmd.Run()
+				value, err := cmd.CombinedOutput()
 
 				if err != nil {
+					fmt.Printf("%s\n", value)
 					log.Fatal(err)
 				}
 
@@ -34,9 +36,10 @@ func main() {
 			Usage:   " Generate scaffold project layout for React web",
 			Action: func(c *cli.Context) error {
 				cmd := exec.Command("make", "react-web-ts")
-				err := cmd.Run()
+				value, err := cmd.CombinedOutput()
 
 				if err != nil {
+					fmt.Printf("%s\n", value)
 					log.Fatal(err)
 				}
 
