@@ -1,4 +1,4 @@
-package scaffolder
+package main
 
 import (
 	"log"
