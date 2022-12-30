@@ -9,6 +9,28 @@ import (
 	"github.com/urfave/cli"
 )
 
+func execCommands(path string) error {
+	cmd := exec.Command("git", "clone", fmt.Sprintf("https://github.com/Guilospanck/%s", path))
+	value, err := cmd.CombinedOutput()
+
+	if err != nil {
+		fmt.Printf("%s\n", value)
+		log.Fatal(err)
+		return err
+	}
+
+	cmd = exec.Command("rm", "-rf", fmt.Sprintf("%s/.git", path))
+	value, err = cmd.CombinedOutput()
+
+	if err != nil {
+		fmt.Printf("%s\n", value)
+		log.Fatal(err)
+		return err
+	}
+
+	return nil
+}
+
 func main() {
 	app := cli.NewApp()
 	app.Version = "1.0.0-rc"
@@ -19,15 +41,7 @@ func main() {
 			Aliases: []string{"go"},
 			Usage:   " Generate scaffold project layout for Go web",
 			Action: func(c *cli.Context) error {
-				cmd := exec.Command("make", "go-web")
-				value, err := cmd.CombinedOutput()
-
-				if err != nil {
-					fmt.Printf("%s\n", value)
-					log.Fatal(err)
-				}
-
-				return err
+				return execCommands("go-web-template")
 			},
 		},
 		{
@@ -35,15 +49,7 @@ func main() {
 			Aliases: []string{"react"},
 			Usage:   " Generate scaffold project layout for React web",
 			Action: func(c *cli.Context) error {
-				cmd := exec.Command("make", "react-web-ts")
-				value, err := cmd.CombinedOutput()
-
-				if err != nil {
-					fmt.Printf("%s\n", value)
-					log.Fatal(err)
-				}
-
-				return err
+				return execCommands("react-18-typescript")
 			},
 		},
 	}
